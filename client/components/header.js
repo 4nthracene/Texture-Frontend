@@ -21,7 +21,7 @@ export default function Header() {
                     <img src="/computerguy.svg" className="h-full" alt="" />
                 </div>
             </div>
-            <img src="/spring.svg" alt="" className="absolute top-[30%] left-[28%] h-[40%]" />
+            <img src="/spring.svg" alt="" className="absolute animate-bounce top-[30%] left-[28%] h-[40%]" />
             <img src="/planet.svg" alt="" style={{
                 animation: 'animatePlanet 10s infinite linear'
             }} className="absolute bottom-[3%] rotate-12 left-[5%] h-[40%]" />

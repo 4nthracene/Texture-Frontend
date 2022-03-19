@@ -7,9 +7,36 @@
   @apply w-full;
 }
 
+html::-webkit-scrollbar {
+  width: 0;
+}
+
 body {
   @apply h-screen;
   @apply w-screen
+}
+
+.animateMediaPlayer::before {
+  position: absolute;
+  content: '';
+  background: black;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  animation: animateMediaPlayerAnimation 2s forwards;
+}
+
+@keyframes animateMediaPlayerAnimation {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.animateRocket {
+  animation: animateRocketAnimation 3s infinite;
 }
 
 @keyframes animatePlanet {
@@ -21,5 +48,18 @@ body {
   }
   100% {
     transform: rotateZ(12deg);
+  }
+}
+
+@keyframes animateRocketAnimation {
+  0% {
+    transform: rotateZ(-12deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-12deg);
+
   }
 }
