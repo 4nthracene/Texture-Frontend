@@ -11,6 +11,10 @@ html::-webkit-scrollbar {
   width: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply h-screen;
   @apply w-screen

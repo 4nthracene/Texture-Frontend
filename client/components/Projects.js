@@ -8,17 +8,20 @@ export default function Projects() {
         { title: "NNFS", description: `Neural Network From Scratch, Yeah nerd Armaan smh :/ Idk why I'll even think about making a neural network from scratch, But anyways i made this Neural network which includes a custom matrix framework It's written in javascript and after than i made a realtime in-browser generational neural net It trains the sheep to find the shortest path between them and the food (which is straight line duhh) but yeah and I haven't modified it since ages :')`, link: "https://github.com/whyarmaan/NeuralNetworkScratchJs", image: "/NNFS Preview.png" },
     ]);
   return (
-    <div className='min-h-screen w-full bg-black'>
-        <div className="grid grid-cols-3 place-items-center h-screen">
+    <div id='projects' className='min-h-screen h-full w-full bg-black relative'>
+        <img src="/phone.svg" alt="" className="absolute hidden lg:inline -top-40 right-40 z-50 -rotate-45 w-96" />
+        <h1 className="text-white text-4xl top-[60px] right-0 font-bold z-50 bg-pink-600 p-5  uppercase absolute -rotate-90">projects</h1>
+        <div className="lg:grid lg:grid-cols-3 flex flex-col gap-6 place-items-center h-screen">
             { projects.map((project, i) => {
                 return (
 
                     <a href={project.link} target="_blank" style={{
-                        transform: `translateY(${i == 1 ? "-100px" : i == 2 ? "120px" : "0px"})`
-                    }} className='bg-white hover:bg-teal-300 transition-all w-[70%] h-[80%] rounded-xl flex flex-col px-7 justify-center' key={i}>
-                        <Image width={400} height={400} src={project.image} className="mx-auto p-5 rounded-4xl" />
-                        <h1 className='text-black uppercase font-bold underline pb-5'>{ project.title }</h1>
-                        <p className="text-black font-light text-sm">
+                        // transform: `translateY(${i == 1 ? "-100px" : i == 2 ? "120px" : "0px"})`
+                    }} className='z-40 bg-white hover:bg-teal-900 text-black hover:text-white transition-all w-[70%] h-[80%] rounded-xl flex flex-col px-7 justify-center' key={i}>
+                        <img src={project.image} className="hidden lg:inline mx-auto p-5 rounded-4xl" />
+
+                        <h1 className='uppercase font-bold mt-5 underline pb-5'>{ project.title }</h1>
+                        <p className="font-light mb-4 text-sm">
                             { project.description.substring(0, 300) + "..." }
                         </p>
                     </a>
