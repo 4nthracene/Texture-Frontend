@@ -7,10 +7,10 @@ export default function Footer() {
             <div className="flex gap-5">
                 <a href="">
 
-                    <i class="fa-brands hover:scale-150 transition-all fa-twitter text-white text-3xl"></i>
+                    <i className="fa-brands hover:scale-150 transition-all fa-twitter text-white text-3xl"></i>
                 </a>
                 <a href="">
-                    <i class="fa-brands hover:scale-150 transition-all fa-discord text-white text-3xl"></i>
+                    <i className="fa-brands hover:scale-150 transition-all fa-discord text-white text-3xl"></i>
                 </a>
             </div>
             <img src="/Rocket2.svg" className="absolute w-[40%] bottom-0 left-0" />
