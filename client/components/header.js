@@ -12,7 +12,7 @@ export default function Header({ rootLevelProps: { isAuth, user, _logout, setAut
     }, []);
     const sso = async () => {
         if (!isAuth) {
-            const GOOGLE_AUTH_URI = "http://localhost:8000/auth/google"
+            const GOOGLE_AUTH_URI = "https://texture-blog.herokuapp.com/auth/google"
             const newWindow = window.open(GOOGLE_AUTH_URI, "_blank", "width=500,height=600");
             const timer = null;
             if (newWindow) {
@@ -28,7 +28,7 @@ export default function Header({ rootLevelProps: { isAuth, user, _logout, setAut
             }
 
         } else {
-            const LOGOUT_URI = "http://localhost:8000/auth/logout";
+            const LOGOUT_URI = "https://texture-blog.herokuapp.com/auth/logout";
             try {
                 const response = await axios.get(LOGOUT_URI, { withCredentials: true });
                 _logout();

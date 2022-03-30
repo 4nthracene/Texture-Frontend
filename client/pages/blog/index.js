@@ -11,7 +11,7 @@ const index = (props) => {
   const [tags, setTags] = useState([]);
   const [allPosts, setAllPosts] = useState(null);
   useEffect(async () => {
-    const GET_ALL_URI = "http://localhost:8000/posts/all";
+    const GET_ALL_URI = "https://texture-blog.herokuapp.com/posts/all";
 
     const res = await axios.get(GET_ALL_URI, { withCredentials: true })
     res.data.forEach(post => {

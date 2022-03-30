@@ -3,7 +3,7 @@ import withAuth from '../../helpers/withAuth'
 import useUser from '../../helpers/useUser';
 import { io } from "socket.io-client"
 
-const socket = io("http://localhost:8000");
+const socket = io("https://texture-blog.herokuapp.com");
 export default withAuth(function Chatrooms(props) {
     const [user, setUser] = useState(null);
     const [message, setMessage] = useState("");

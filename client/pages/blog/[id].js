@@ -10,7 +10,7 @@ export default withAuth(function Post() {
   const [post, setPost] = useState(null);
   const { id } = router.query;
   useEffect(async () => {
-      const GET_POST = "http://localhost:8000/posts?id=" + id;
+      const GET_POST = "https://texture-blog.herokuapp.com/posts?id=" + id;
       const _post = await axios.get(GET_POST, { withCredentials: true });
       setPost(_post.data.post);
       console.log(_post.data);
