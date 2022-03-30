@@ -13,7 +13,7 @@ export default function Footer() {
                     <i className="fa-brands hover:scale-150 transition-all fa-discord text-white text-3xl"></i>
                 </a>
             </div>
-            <img src="/Rocket2.svg" className="absolute w-[40%] bottom-0 left-0" />
+            <img src="/Rocket2-min.png" className="absolute w-[40%] bottom-0 left-0" />
         </div>
     )
 }

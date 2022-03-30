@@ -49,19 +49,20 @@ const index = (props) => {
             }
           </div>
         </div>
-        <div className="content col-span-4 row-span-3 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+        {/*  md:grid-cols-2 grid-cols-1 lg:grid-cols-3*/}
+        <div className="content col-span-4 row-span-3 grid auto-cols-fr">
           {
             !loading &&
             allPosts.map((post, i) => {
               console.log("post:", post);
               return (
-                <div className="bg-white max-h-[500px] rounded-xl flex lg:flex-col justify-center p-5">
-                  <img src={post.imageUrl} className="hidden lg:inline-block" alt="" />
+                <div className="bg-white max-h-[500px] rounded-xl flex relative gap-5 justify-around p-5">
+                  <img src={post.imageUrl} className="hidden lg:inline-block w-[40%] rounded-xl" alt="" />
                   <div className="content flex flex-col justify-center">
                     <h1 className="text-black font-extrabold">
                       {post.title}
                     </h1>
-                    <p className='text-black font-light max-h-[200px] overflow-hidden'>
+                    <p className='text-black font-light max-w-[400px] overflow-hidden'>
                       {post.description}
                     </p>
                     <hr />

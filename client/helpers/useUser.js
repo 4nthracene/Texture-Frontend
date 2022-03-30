@@ -9,7 +9,6 @@ const useUser = async () => {
         if(Cookie.get("user")) {
             user = (await JSON.parse(Cookie.get("user"))).user;
             if(user) {
-                console.log("user: ", user);
                 isAuth = true;
             }
         }

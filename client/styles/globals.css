@@ -50,6 +50,9 @@ body {
 content h1 {
   @apply text-2xl
 }
+.messages::-webkit-scrollbar {
+  width: 0;
+}
 
 @keyframes animatePlanet {
   0% {

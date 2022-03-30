@@ -9,7 +9,7 @@ export default function Projects() {
     ]);
   return (
     <div id='projects' className='min-h-screen h-full w-full bg-black relative'>
-        <img src="/phone.svg" alt="" className="absolute hidden lg:inline -top-40 right-40 z-50 -rotate-45 w-96" />
+        <img src="/phone-min.png" alt="" className="absolute hidden lg:inline -top-40 right-40 z-50 -rotate-45 w-96" />
         <h1 className="text-white text-4xl top-[60px] right-0 font-bold z-50 bg-pink-600 p-5  uppercase absolute -rotate-90">projects</h1>
         <div className="lg:grid lg:grid-cols-3 flex flex-col gap-6 place-items-center h-screen">
             { projects.map((project, i) => {
