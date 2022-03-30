@@ -16,12 +16,20 @@ export default function withAuth(ProtectedRoute) {
         };
         useEffect(async () => {
             const [_isAuth, _user] = await useUser()
+            console.log("_isAuth: ", _isAuth);
             setAuth(_isAuth);
             setUser(_user);
-            if(!_isAuth) {
-                router.push("/")
+            console.log(_isAuth);
+            if(_isAuth == null) {
+                console.log("HELLO PLEASE", _isAuth);
+                return router.push("/?auth=failed");
             }
         }, []);
-        return <ProtectedRoute {...props} />;
+        if(isAuth) {
+            console.log("hi please")
+            return <ProtectedRoute {...props} />;
+        } else {
+            return <></>;
+        }
     };
 }

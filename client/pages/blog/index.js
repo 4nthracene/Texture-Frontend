@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link';
 import Head from 'next/head';
 import axios from "axios"
 import Checkbox from '../../components/checkbox';
+import format from '../../helpers/formatDate';
 import withAuth from '../../helpers/withAuth';
 
 const index = (props) => {
@@ -10,13 +12,15 @@ const index = (props) => {
   const [allPosts, setAllPosts] = useState(null);
   useEffect(async () => {
     const GET_ALL_URI = "http://localhost:8000/posts/all";
+
     const res = await axios.get(GET_ALL_URI, { withCredentials: true })
     res.data.forEach(post => {
       const postTags = post.tags;
       postTags.forEach(tag => {
         if (!tags.includes(tag)) {
           const _tags = tags;
-          setTags(_tags.push(tag))
+          _tags.push(tag)
+          setTags(_tags);
         }
       })
     });
@@ -35,15 +39,39 @@ const index = (props) => {
         </div>
         <div className="sidebar flex flex-col border-r-2 border-white col-span-1 row-span-3">
           <h1 className="text-white uppercase text-2xl">Filter</h1>
-          {
-            tags.length > 0 &&
-            tags.map((tag, i) => {
-              return <Checkbox id={i} key={i} text={tag} />
-            })
-          }
-        </div>
-        <div className="content col-span-4 row-span-3">
+          <div className="flex flex-col justify-center mt-7 gap-6">
 
+            {
+              tags.length > 0 &&
+              tags.map((tag, i) => {
+                return <Checkbox id={i} key={i} text={tag} />
+              })
+            }
+          </div>
+        </div>
+        <div className="content col-span-4 row-span-3 grid grid-cols-3">
+            {
+              !loading && 
+              allPosts.map((post, i) => {
+                console.log("post:", post);
+                return (
+                  <div className="bg-white max-h-[500px] max-w-[500px] rounded-xl flex flex-col justify-center p-5">
+                    <img src={post.imageUrl} alt="" />
+                    <h1 className="text-black font-extrabold">
+                      { post.title }
+                    </h1>
+                    <p className='text-black font-light'>
+                      {post.content.substring(0, 300)}...
+                    </p>
+                    <hr />
+                    <div className="flex items-center justify-between">
+                      <p className="font-bold text-gray-500">{format(post.createdAt)}</p>
+                      <Link href={`/blog/${post._id}`} className="uppercase font-light text-black">Read More...</Link>
+                    </div>
+                  </div>
+                )
+              })
+            }
         </div>
       </div>
     </>

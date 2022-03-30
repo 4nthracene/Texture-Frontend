@@ -43,6 +43,10 @@ body {
   animation: animateRocketAnimation 3s infinite;
 }
 
+.Toastify * {
+  z-index: 50;
+}
+
 @keyframes animatePlanet {
   0% {
     transform: rotateZ(12deg);
