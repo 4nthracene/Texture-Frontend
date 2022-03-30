@@ -55,14 +55,14 @@ export default function Header({ rootLevelProps: { isAuth, user, _logout, setAut
             />
             {/* Same as */}
             <ToastContainer />
-            <nav className="flex items-center justify-between h-[10%] w-full">
+            <nav className="flex items-center justify-between h-[10%] w-full md:flex-row flex-col">
                 <h1 className="text-white text-2xl font-lighter uppercase block">Texture <span className="text-teal-400 tracking-[10px] block font-bold">Blog</span></h1>
                 <ul className="flex items-center justify-center gap-3 lg:gap-6 p-3 text-white text-sm">
                     <li className="uppercase hover:underline hover:text-teal-400 transition-all"><a href="#">Home</a></li>
                     <li className="uppercase hover:underline  hover:text-teal-400 transition-all"><Link href="/blog">Blogs</Link></li>
                     <li className="uppercase hover:underline  hover:text-teal-400 transition-all"><a href="#about">About</a></li>
                     <li className="uppercase hover:underline  hover:text-teal-400 transition-all"><a href="#projects">Projects</a></li>
-                    <li className="uppercase hover:underline  hover:text-teal-400 transition-all "><a href="#" onClick={sso}>{isAuth ? "Logout" : "Sign in"}</a></li>
+                    <li className="uppercase hover:underline  hover:text-teal-400 transition-all "><a href="#" onClick={sso}>{isAuth ? "Logout" : "Login"}</a></li>
                 </ul>
             </nav>
             <div className="flex items-center justify-center h-[90%] w-full mt-4">
@@ -74,7 +74,7 @@ export default function Header({ rootLevelProps: { isAuth, user, _logout, setAut
                     <p className="text-teal-400 text-xl">A Web, Blockchain developer.</p>
                 </div>
                 <div className="flex flex-col h-full items-center justify-center w-1/2">
-                    <img src="/computerguy.svg" className="h-full" alt="" />
+                    <img src="/computerguy.svg" className="h-full md:inline-block hidden" alt="" />
                 </div>
             </div>
             <img src="/spring.svg" alt="" className="absolute hidden md:inline animate-bounce top-[30%] left-[28%] h-[40%]" />

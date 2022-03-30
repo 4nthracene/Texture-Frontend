@@ -32,12 +32,12 @@ const index = (props) => {
       <Head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
       </Head>
-      <div className='p-[90px] relative grid grid-cols-5 grid-rows-4 gap-6 w-full bg-black'>
+      <div className='p-[90px] min-h-screen relative grid grid-cols-5 grid-rows-4 gap-6 w-full bg-black'>
         <div className="title col-span-5 p-5 flex items-center">
-          <img src="/rocket.svg" className='w-[180px]' alt="" />
+          <img src="/rocket.svg" className='hidden md:inline-block w-[180px]' alt="" />
           <h1 className="text-white uppercase font-bold text-5xl"> Blogs! </h1>
         </div>
-        <div className="sidebar flex flex-col border-r-2 border-white col-span-1 row-span-3">
+        <div className="sidebar hidden lg:flex lg:flex-col border-r-2 border-white col-span-1 row-span-3">
           <h1 className="text-white uppercase text-2xl">Filter</h1>
           <div className="flex flex-col justify-center mt-7 gap-6">
 
@@ -49,29 +49,31 @@ const index = (props) => {
             }
           </div>
         </div>
-        <div className="content col-span-4 row-span-3 grid grid-cols-3">
-            {
-              !loading && 
-              allPosts.map((post, i) => {
-                console.log("post:", post);
-                return (
-                  <div className="bg-white max-h-[500px] max-w-[500px] rounded-xl flex flex-col justify-center p-5">
-                    <img src={post.imageUrl} alt="" />
+        <div className="content col-span-4 row-span-3 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+          {
+            !loading &&
+            allPosts.map((post, i) => {
+              console.log("post:", post);
+              return (
+                <div className="bg-white max-h-[500px] rounded-xl flex lg:flex-col justify-center p-5">
+                  <img src={post.imageUrl} className="hidden lg:inline-block" alt="" />
+                  <div className="content flex flex-col justify-center">
                     <h1 className="text-black font-extrabold">
-                      { post.title }
+                      {post.title}
                     </h1>
-                    <p className='text-black font-light'>
-                      {post.content.substring(0, 300)}...
+                    <p className='text-black font-light max-h-[200px] overflow-hidden'>
+                      {post.description}
                     </p>
                     <hr />
                     <div className="flex items-center justify-between">
-                      <p className="font-bold text-gray-500">{format(post.createdAt)}</p>
+                      <p className="font-bold text-gray-500 ">{format(post.createdAt)}</p>
                       <Link href={`/blog/${post._id}`} className="uppercase font-light text-black">Read More...</Link>
                     </div>
                   </div>
-                )
-              })
-            }
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     </>

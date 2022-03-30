@@ -47,6 +47,10 @@ body {
   z-index: 50;
 }
 
+content h1 {
+  @apply text-2xl
+}
+
 @keyframes animatePlanet {
   0% {
     transform: rotateZ(12deg);
